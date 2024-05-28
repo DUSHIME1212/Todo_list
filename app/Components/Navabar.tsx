@@ -4,17 +4,20 @@ import React, {useState} from 'react'
 import Profilecard from "@/app/Components/Profilecard";
 import Searchcard from "@/app/Components/Searchcard";
 import Link from "next/link";
+import { Plus, FolderPlus, Cube } from "@phosphor-icons/react";
 
 const Navabar = () => {
     const [shownav, setShownav] = useState(true)
 
 
     return (
-        <header>{
+        <header className={'w-1/4'}>{
             shownav &&
-            <div className={'h-screen w-1/6 flex flex-col p-4 justify-center'} >
-                <Profilecard/>
-                <Searchcard/>
+            <div className={'h-screen flex flex-col p-4 justify-between'} >
+                <div>
+                    <Profilecard/>
+                    <Searchcard/>
+                </div>
                 <div>
                     <Link className={'flex p-2 border-b-2 flex-row justify-between'} href={''}>
                         <div>
@@ -51,7 +54,17 @@ const Navabar = () => {
                         </div>
                     </Link>
                 </div>
-
+                <div>
+                    <div className={'flex w-full'}>
+                        <button className={'flex p-2 border-b-2 w-2/3 flex-row justify-center'} href={''}>
+                            <Plus size={24}/>
+                            <span>New list</span>
+                        </button>
+                        <button className={'flex p-2 border-b-2 w-1/3 flex-row justify-center'} href={''}>
+                            <FolderPlus size={24} />
+                        </button>
+                    </div>
+                </div>
             </div>}
         </header>
     )
