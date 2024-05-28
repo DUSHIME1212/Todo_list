@@ -6,7 +6,7 @@ import Searchcard from "@/app/Components/Searchcard";
 import Link from "next/link";
 import { Plus, FolderPlus, Cube } from "@phosphor-icons/react";
 
-const Navabar = () => {
+const Navbar = () => {
     const [shownav, setShownav] = useState(true)
 
 
@@ -56,11 +56,11 @@ const Navabar = () => {
                 </div>
                 <div>
                     <div className={'flex w-full'}>
-                        <button className={'flex p-2 border-b-2 w-2/3 flex-row justify-center'} href={''}>
+                        <button className={'flex p-2 border-b-2 w-2/3 flex-row justify-center'} href={'/'}>
                             <Plus size={24}/>
                             <span>New list</span>
                         </button>
-                        <button className={'flex p-2 border-b-2 w-1/3 flex-row justify-center'} href={''}>
+                        <button className={'flex p-2 border-b-2 w-1/3 flex-row justify-center'} href={'/'}>
                             <FolderPlus size={24} />
                         </button>
                     </div>
@@ -69,4 +69,4 @@ const Navabar = () => {
         </header>
     )
 }
-export default Navabar
+export default Navbar
