@@ -56,11 +56,11 @@ const Navbar = () => {
                 </div>
                 <div>
                     <div className={'flex w-full'}>
-                        <button className={'flex p-2 border-b-2 w-2/3 flex-row justify-center'} href={'/'}>
+                        <button className={'flex p-2 border-b-2 w-2/3 flex-row justify-center'} onClick={() => window.location.href='/'}>
                             <Plus size={24}/>
                             <span>New list</span>
                         </button>
-                        <button className={'flex p-2 border-b-2 w-1/3 flex-row justify-center'} href={'/'}>
+                        <button title="Go to icon" className={'flex p-2 border-b-2 w-1/3 flex-row justify-center'} onClick={() => window.location.href='/'}>
                             <FolderPlus size={24} />
                         </button>
                     </div>
