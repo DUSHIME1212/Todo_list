@@ -9,26 +9,53 @@ export default function Home() {
     }
     const todos = [
         {
-            title: "Home",
-            description: "Home",
+            title: "Buy Groceries",
+            description: "Buy milk, bread, eggs, and cheese from the supermarket.",
             done: false,
-            important:true,
+            important: true,
             bgcolor: "bg-green-200",
-
         },
         {
-            title: "Home",
-            description: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
+            title: "Meeting with John",
+            description: "Discuss the project details and timelines with John.",
             done: false,
-            important:true,
+            important: true,
             bgcolor: "bg-gray-200",
-
+        },
+        {
+            title: "Workout",
+            description: "Go for a 30-minute run in the park.",
+            done: false,
+            important: true,
+            bgcolor: "bg-yellow-200",
+        },
+        {
+            title: "Read a Book",
+            description: "Finish reading 'The Great Gatsby' by F. Scott Fitzgerald.",
+            done: true,
+            important: true,
+            bgcolor: "bg-red-200 opacity-20",
+        },
+        {
+            title: "Write Blog Post",
+            description: "Write a new blog post on 'The Benefits of Yoga'.",
+            done: false,
+            important: true,
+            bgcolor: "bg-blue-200",
+        },
+        {
+            title: "Pay Bills",
+            description: "Pay electricity and internet bills before the due date.",
+            done: false,
+            important: true,
+            bgcolor: "bg-purple-200",
         }
+
     ]
   return (
       <div className={'w-full md:w-2/4 p-8 relative'}>
           {/*topnav bar*/}
-        <header className={'bg-white flex justify-between items-center text-gray-600'}>
+        <header className={'bg-white flex justify-between fixed top-0 left-0 items-center text-gray-600'}>
             {/*right*/}
             <div>
                 <h1 className="font-bold text-xl">MY DAY</h1>
@@ -47,11 +74,11 @@ export default function Home() {
                 </button>
             </div>
         </header>
-          <main className={'mt-12 flex flex-col gap-2'}>
+          <main className={'mt-12 flex h-[calc(100vh-180px)] scroll-smooth overflow-y-auto flex-col gap-2'}>
               {todos.map((todo, index) => (
-                  <div className={`p-4 gap-2 flex items-center rounded-xl justify-between ${todo.bgcolor}`} key={index}>
+                  <div className={`p-4 gap-2 flex scroll-smooth items-center rounded-xl justify-between ${todo.bgcolor}`} key={index}>
                       <div className={'gap-2 flex flex-col'}>
-                          <h1 className={'text-xl font-semibold'}>{todo.title}</h1>
+                          <h1 className={'text-2xl font-semibold'}>{todo.title}</h1>
                           <p className={'text-sm'}>{todo.description}</p>
                       </div>
                       <div className={'flex items-center justify-center rounded-full size-4 ring-1 ring-gray-500 p-1'}>
@@ -63,8 +90,11 @@ export default function Home() {
               ))}
 
           </main>
-          <div className={'w-full max-w-[92%] p-2 absolute bottom-0 my-8'}>
-              <input type="text" name="" className={'w-full p-2 bg-transparent outline-none'} placeholder={'Try typing Pay utilities bill by Friday 6pm'} id="" />
+          <div className={'w-full max-w-[92%] bg-[#ffffff9f] backdrop-blur-md p-2 flex flex-col gap-2 absolute bottom-0 my-8'}>
+              <input type="text" name="" className={'w-full font-semibold border-b-2 text-2xl p-2 bg-transparent outline-none'}
+                     placeholder={'Title'} id=""/>
+              <input type="text" name="" className={'w-full p-2 border-b-2 bg-transparent outline-none'}
+                     placeholder={'Try typing Pay utilities bill by Friday 6pm'} id=""/>
           </div>
       </div>
   );
