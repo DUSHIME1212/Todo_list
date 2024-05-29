@@ -11,7 +11,7 @@ const Navbar = () => {
 
 
     return (
-        <header className={'w-1/4'}>{
+        <header className={'w-full md:w-1/4'}>{
             shownav &&
             <div className={'h-screen flex flex-col p-4 justify-between'} >
                 <div>

@@ -26,7 +26,7 @@ export default function Home() {
         }
     ]
   return (
-      <div className={'w-2/4 p-8 relative'}>
+      <div className={'w-full md:w-2/4 p-8 relative'}>
           {/*topnav bar*/}
         <header className={'bg-white flex justify-between items-center text-gray-600'}>
             {/*right*/}
@@ -49,8 +49,8 @@ export default function Home() {
         </header>
           <main className={'mt-12 flex flex-col gap-2'}>
               {todos.map((todo, index) => (
-                  <div className={`p-4 flex items-center rounded-xl justify-between ${todo.bgcolor}`} key={index}>
-                      <div>
+                  <div className={`p-4 gap-2 flex items-center rounded-xl justify-between ${todo.bgcolor}`} key={index}>
+                      <div className={'gap-2 flex flex-col'}>
                           <h1 className={'text-xl font-semibold'}>{todo.title}</h1>
                           <p className={'text-sm'}>{todo.description}</p>
                       </div>
@@ -63,8 +63,8 @@ export default function Home() {
               ))}
 
           </main>
-          <div className={'w-full p-2 absolute bottom-0 my-8'}>
-              <input type="text" name="" className={'w-full bg-transparent outline-none'} placeholder={'Try typing Pay utilities bill by Friday 6pm'} id="" />
+          <div className={'w-full max-w-[92%] p-2 absolute bottom-0 my-8'}>
+              <input type="text" name="" className={'w-full p-2 bg-transparent outline-none'} placeholder={'Try typing Pay utilities bill by Friday 6pm'} id="" />
           </div>
       </div>
   );
