@@ -49,13 +49,27 @@ export default function Home() {
             done: false,
             important: true,
             bgcolor: "bg-purple-200",
-        }
+        },
+        {
+            title: "Pay Bills",
+            description: "Pay the electricity and water bills before the due date.",
+            done: false,
+            important: true,
+            bgcolor: "bg-green-200",
+        },
+        {
+            title: "Call Mom",
+            description: "Check in with mom and see how she's doing.",
+            done: false,
+            important: true,
+            bgcolor: "bg-yellow-200",
+        },
 
     ]
   return (
       <div className={'w-full md:w-2/4 p-8 relative'}>
           {/*topnav bar*/}
-        <header className={'bg-white flex justify-between fixed top-0 left-0 items-center text-gray-600'}>
+        <header className={'bg-white flex justify-between items-center text-gray-600'}>
             {/*right*/}
             <div>
                 <h1 className="font-bold text-xl">MY DAY</h1>
@@ -74,7 +88,7 @@ export default function Home() {
                 </button>
             </div>
         </header>
-          <main className={'mt-12 flex h-[calc(100vh-180px)] scroll-smooth overflow-y-auto flex-col gap-2'}>
+          <main className={'mt-12 flex h-[calc(100vh-180px)] scrollbar-hide scroll-smooth overflow-y-auto flex-col gap-2'}>
               {todos.map((todo, index) => (
                   <div className={`p-4 gap-2 flex scroll-smooth items-center rounded-xl justify-between ${todo.bgcolor}`} key={index}>
                       <div className={'gap-2 flex flex-col'}>
