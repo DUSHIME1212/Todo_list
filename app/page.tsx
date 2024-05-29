@@ -1,13 +1,62 @@
 "use client"
 import {ArrowLineUp,Lightbulb,DotsThree} from '@phosphor-icons/react'
 import Image from "next/image";
+import React,{useState, useEffect} from 'react';
 
 export default function Home() {
     let day = new Date();
     const date = {
         date: day.toDateString(),
     }
-    const todos = [
+ 
+    // we will activate localStorage on final stages
+
+    // const [todos, setTodos] = React.useState<any[]>([]);
+     
+    //  React.useEffect(() => {
+    //     fetchingTodos();
+    //  }, []);
+
+    //  const fetchingTodos = async () => {
+    //  const inStorage = await todosFromLocal();
+    //  setTodos(inStorage as any[]);
+    //  } 
+    //  const todosFromLocal = ()=> {
+    //     return new Promise((resolve) => {
+    //         const inStorage = localStorage.getItem('todos');
+    //         if(inStorage){
+    //             resolve(JSON.parse(inStorage));
+    //         }
+    //         else 
+    //         {
+    //             resolve([]);
+    //         }
+    //     });
+    //  };
+    //   const saveTodos = (todos: { title: string; description: string} []) => {
+    //     localStorage.setItem("todos", JSON.stringify(todos))
+    //   }  
+        
+    
+    //  const addTodo = (title:string, description: string) => {
+    //     const newTodo = {
+    //         title,
+    //         description,
+    //         done: false,
+    //         important: true,
+    //         bgcolor: "bg-blue-200",
+    //     };
+
+    //     const updatedTodos = [...todos, newTodo];
+    //     setTodos(updatedTodos);
+
+    //     saveTodos(updatedTodos);
+    // };
+
+    
+
+
+     const todos = [
         {
             title: "Buy Groceries",
             description: "Buy milk, bread, eggs, and cheese from the supermarket.",
@@ -65,7 +114,7 @@ export default function Home() {
             bgcolor: "bg-yellow-200",
         },
 
-    ]
+   ]
   return (
       <div className={'w-full md:w-2/4 p-8 relative'}>
           {/*topnav bar*/}
