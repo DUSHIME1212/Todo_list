@@ -1,10 +1,13 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/Components/Navbar";
 import Suugestion from "@/app/Components/Suugestion";
+import {useState} from "react";
 
 const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata: Metadata = {
   title: "To do List",
@@ -20,9 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
       <section className={'flex flex-col md:flex-row capitalize w-full justify-between'}>
-          <Navbar/>
           {children}
-          <Suugestion/>
       </section>
       </body>
     </html>
