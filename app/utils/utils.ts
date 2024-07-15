@@ -25,7 +25,7 @@ export const todos = [
         description: "Finish reading 'The Great Gatsby' by F. Scott Fitzgerald.",
         done: true,
         important: true,
-        bgcolor: "bg-red-200 opacity-20",
+        bgcolor: "bg-red-200",
     },
     {
         title: "Write Blog Post",
