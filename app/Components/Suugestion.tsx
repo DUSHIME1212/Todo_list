@@ -43,7 +43,7 @@ const Suugestion = () => {
                 </div>
             ))}
             <div className={'w-full flex justify-end'}>
-                <button>
+                <button title='button'>
                     <X size={24} weight="light" />
                 </button>
             </div>

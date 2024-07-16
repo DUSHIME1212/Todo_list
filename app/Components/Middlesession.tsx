@@ -1,12 +1,60 @@
 'use client'
-import React, {useState} from 'react'
-import {fetch} from "undici";
+import React, {useState, useEffect } from 'react';
+ 
 import {todos} from "@/app/utils/utils";
 import {X} from "@phosphor-icons/react";
 
-const Middlesession = () => {
+interface QuoteData {
+    quote: string;
+    author: string;
+  }
 
-    const [item, setitem] = useState([])
+const Middlesession = () => {
+    const [quote, setQuote] = useState<string>('');
+    const [author, setAuthor] = useState<string>('');
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+  
+     useEffect(() => {
+       const fetchQuote = async () => {
+        try {
+            let randomNum = Math.floor(Math.random() * 30);
+            let API = `https://dummyjson.com/quotes/${randomNum}`;
+            let response = await fetch(API);
+            
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch quote');
+          }
+          let data = await response.json();
+          // Type assertion or casting to ensure data is of type QuoteData
+          if (isQuoteData(data)) {
+            setQuote(data.quote);
+            setAuthor(data.author);
+            setIsLoading(false);
+          } else {
+            throw new Error('failed');
+          }
+        } catch(error: any) {
+          setError(error.message);
+          setIsLoading(false);
+        }
+        };
+  
+      fetchQuote();
+     }
+     ,[]);
+      
+     const isQuoteData = (data: any): data is QuoteData => {
+        return (
+          typeof data.quote === 'string' &&
+          typeof data.author === 'string'
+        );
+      };
+
+
+
+    const [item, setitem] = useState([]);
 
     // function handlesetitem (data:FormData){
     //     let tit = data.get(title)
@@ -33,13 +81,28 @@ const Middlesession = () => {
         <div className={'flex flex-col w-full relative h-screen p-4'}>
             <div className={'flex w-full items-center justify-between'}>
                 <h1 className={'text-4xl'}>MY DAY</h1>
-                <p className={'flex items-end w-1/2 flex-col'}>
+                <span className={'flex items-end w-1/2 flex-col'}>
                     {thisdate}
-                    <span className={'tracking-tighter font-bold'}>author</span>
-                    <p className={'text-right opacity-60 font-light'}>About his is my To-Do List application, featuring a robust backend powered by Firebase and a dynamic frontend built</p>
-                </p>
+                   <>
+                   {isLoading ? (
+                        <p>Loading...</p>
+                      ) : error ? (
+                        <p>Error: {error}</p>
+                      ) : (
+                        <>
+                          <p className={'tracking-tighter font-bold'}>-{author}</p>
+                          <p className={'text-right opacity-60 font-light'}>{quote}</p>
+                        </>
+                      )}
+                   </>
+                </span>
             </div>
+         
+{/* 
+            <span className=>author</span>
+                    <p className=>About his is my To-Do List application, featuring a robust backend powered by Firebase and a dynamic frontend built</p> */}
 
+              
             <div className={'overflow-scroll'}>
                 {
                     todos.map((todo, i) =>(
