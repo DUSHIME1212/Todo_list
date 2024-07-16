@@ -5,17 +5,26 @@ import Profilecard from "@/app/Components/Profilecard";
 import Searchcard from "@/app/Components/Searchcard";
 import Link from "next/link";
 import { Plus, FolderPlus, Cube } from "@phosphor-icons/react";
+import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs";
+import {auth} from "@clerk/nextjs/server";
 
 const Navbar = () => {
     const [shownav, setShownav] = useState(true)
-
 
     return (
         <header className={'w-full'}>{
             shownav &&
             <div className={'h-screen flex flex-col p-4 justify-between'} >
                 <div>
-                    <Profilecard/>
+                    <SignedOut>
+                        <SignInButton />
+                    </SignedOut>
+                    <SignedIn>
+                        <div className={'flex items-center gap-4'}>
+                            <UserButton />
+                            username
+                        </div>
+                    </SignedIn>
                     <Searchcard/>
                 </div>
                 <div>
